@@ -27,6 +27,7 @@ const { mockRouteMap, mockFiles, mockFsFail } = vi.hoisted(() => {
     "guides/missing": "guides/missing.mdx",
     // Throwing file → readLocalFile catch branch
     "guides/throws": "guides/throws.mdx",
+    "guides/snake": "guides/snake.mdx",
   };
 
   const longBody = "Zulu Yankee Xray content. ".repeat(20); // ~500 chars, no title-word overlap
@@ -35,6 +36,7 @@ const { mockRouteMap, mockFiles, mockFsFail } = vi.hoisted(() => {
     "guides/no-heading.mdx":
       "Zulu Yankee Xray prose about upgrading, no leading title in file.",
     "guides/long-doc.mdx": `# AlphaBravoCharlie\n\n${longBody}`,
+    "guides/snake.mdx": "# Snake\n\nSet HIVE_DOCS_REF before the _sync_ runs.",
     "guides/short-doc.mdx": "# Short\n\nJust a short doc body.",
     "guides/rich.mdx":
       "# Rich Doc\n\n" +
@@ -174,6 +176,15 @@ describe("GET /api/search (extra branches)", () => {
     expect(hit).toBeDefined();
     // text is well under 140 chars → no ellipsis suffix
     expect(hit.snippet.endsWith("...")).toBe(false);
+  });
+
+  it("keeps intraword underscores searchable while still unwrapping _italic_", async () => {
+    const res = await GET(new MockNextRequest("hive_docs_ref"));
+    const hit = res.body.results.find((r: any) => r.title === "Snake");
+    expect(hit).toBeDefined();
+    expect(hit.matchType).toBe("content");
+    expect(hit.content).toContain("HIVE_DOCS_REF");
+    expect(hit.content).toContain("the sync runs");
   });
 
   it("toPlainText strips code blocks, inline code, HTML comments, and links", async () => {

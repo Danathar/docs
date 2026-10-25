@@ -51,7 +51,8 @@ function toPlainText(content: string): string {
   // Bold/italic
   text = text.replace(/\*\*([^*]+)\*\*/g, "$1");
   text = text.replace(/\*([^*]+)\*/g, "$1");
-  text = text.replace(/_([^_]+)_/g, "$1");
+  // Underscores inside words (HIVE_DOCS_REF) are not emphasis; keep them.
+  text = text.replace(/(^|[^\w])_([^_]+)_(?!\w)/g, "$1$2");
 
   // HR
   text = text.replace(/^---+$/gm, "");
