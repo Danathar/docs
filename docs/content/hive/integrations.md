@@ -79,14 +79,19 @@ Agent sandboxes and the spoke keystore. The keystore moves spoke secrets on the 
 
 | Integration | Hive config | Status | Notes |
 | --- | --- | --- | --- |
-| ![OpenShell sandbox runtime](/integrations/openshell.svg) OpenShell | sandbox runtime | In progress (opt-in, phase 1) | NVIDIA's agent sandbox runtime. See [sandbox isolation](https://github.com/hivecommons/hive/blob/v5/src/docs/sandbox-isolation.md#running-sandboxed-kicks-in-an-openshell-sandbox) and [hive#17642](https://github.com/hivecommons/hive/issues/17642). |
-| ![Agent Substrate sandbox runtime](/integrations/agent-substrate.png) Agent Substrate | sandbox runtime | In progress (opt-in, phase 2) | CNCF Sandbox project. See [sandbox isolation](https://github.com/hivecommons/hive/blob/v5/src/docs/sandbox-isolation.md#running-sandboxed-kicks-in-a-substrate-actor) and [hive#17695](https://github.com/hivecommons/hive/issues/17695). |
+| ![OpenShell sandbox runtime](/integrations/openshell.svg) OpenShell | sandbox runtime | Opt-in (phase 1) | NVIDIA's agent sandbox runtime. See [sandbox isolation](https://github.com/hivecommons/hive/blob/v5/src/docs/sandbox-isolation.md#running-sandboxed-kicks-in-an-openshell-sandbox) and epic [hive#17642](https://github.com/hivecommons/hive/issues/17642). |
+| ![Agent Substrate sandbox runtime](/integrations/agent-substrate.png) Agent Substrate | sandbox runtime | Opt-in (phase 2) | CNCF Sandbox project. See [sandbox isolation](https://github.com/hivecommons/hive/blob/v5/src/docs/sandbox-isolation.md#running-sandboxed-kicks-in-a-substrate-actor) and epic [hive#17695](https://github.com/hivecommons/hive/issues/17695). |
 | ![OpenBao keystore](/integrations/openbao.svg) OpenBao | keystore provider `openbao` | In progress (opt-in) | Delegates secret encryption to an OpenBao Transit engine for operators who already run a key manager. Tracked in [hive#18216](https://github.com/hivecommons/hive/issues/18216). |
 | Built-in keystore | keystore provider `env` | In progress (default) | AES-256-GCM keyed from the per-hive key the hub already provisions; no new infrastructure. Tracked in [hive#18215](https://github.com/hivecommons/hive/issues/18215). |
 | ![Podman agent sandbox](/integrations/podman.svg) Podman | rootless agent sandbox | Opt-in | Hub-side agent sandbox, off by default. See [sandbox isolation](https://github.com/hivecommons/hive/blob/v5/src/docs/sandbox-isolation.md#current-wiring). |
 | ![Kubernetes Job sandbox runtime](/integrations/kubernetes.svg) Kubernetes | Job sandbox runtime | Opt-in | Runs sandboxed kicks as Kubernetes Jobs. See [sandbox isolation](https://github.com/hivecommons/hive/blob/v5/src/docs/sandbox-isolation.md#running-sandboxed-kicks-as-kubernetes-jobs). |
 
-Logo sources and licenses are recorded in [hive's logo sources](https://github.com/hivecommons/hive/blob/v5/src/docs/assets/logos/SOURCES.md): OpenShell (Apache-2.0, project mark), Agent Substrate (Apache-2.0 OR CC-BY-4.0, used under CC-BY-4.0), OpenBao (CC-BY-4.0), Podman and Kubernetes (Simple Icons, CC0).
+Logos are trademarks of their owners and are used for identification only. Sources and licenses:
+
+- OpenShell: the project mark (not the NVIDIA corporate logo), unmodified from [`openshell-mark.svg`](https://github.com/NVIDIA/OpenShell/blob/2e5589b2180dd432320adda124c4f7bcede119b5/docs/brand/assets/openshell-mark.svg), [Apache-2.0](https://github.com/NVIDIA/OpenShell/blob/2e5589b2180dd432320adda124c4f7bcede119b5/LICENSE).
+- Agent Substrate: "Yolo", designed and donated by Nan Hockin, from [`ate-logo.png`](https://github.com/agent-substrate/substrate/blob/cf5768a075b741511829a207bdfb4e296d4114c7/logo/ate-logo.png), resized to 128 x 128. Licensed [Apache-2.0 OR CC-BY-4.0](https://github.com/agent-substrate/substrate/blob/cf5768a075b741511829a207bdfb4e296d4114c7/logo/LICENSE), used here under CC-BY-4.0.
+- OpenBao: unmodified from [`openbao-color.svg`](https://github.com/openbao/artwork/blob/2387118edc846d2ec82ffd72409a3e0fe3be8519/color/openbao-color.svg), [CC-BY-4.0](https://github.com/openbao/artwork/blob/2387118edc846d2ec82ffd72409a3e0fe3be8519/LICENSE).
+- Podman and Kubernetes: [Simple Icons](https://github.com/simple-icons/simple-icons/tree/90646e4bf7f3b89df6c37e65baf3e7bc759a517c/icons), [CC0 1.0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md).
 
 ## Planning, work sources, and related ecosystem
 
