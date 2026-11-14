@@ -1,0 +1,1 @@
+- The Hive integrations page gains an "Isolation and secrets" section with OpenShell, Agent Substrate, OpenBao, the built-in keystore, Podman and Kubernetes, using each project's own logo (hivecommons/hive#18217).
